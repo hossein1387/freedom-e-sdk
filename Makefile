@@ -175,7 +175,8 @@ $(openocd_builddir)/configure.stamp:
 	mkdir -p $(dir $@)
 	cd $(abspath $(openocd_srcdir)); autoreconf -i
 	cd $(dir $@); $(abspath $(openocd_srcdir)/configure) \
-		--prefix=$(abspath $(dir $@)/prefix)
+		--prefix=$(abspath $(dir $@)/prefix) \
+		--disable-werror
 	date > $@
 
 .PHONY: openocd-clean
