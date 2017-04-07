@@ -173,6 +173,7 @@ $(openocd_builddir)/build.stamp: $(openocd_builddir)/configure.stamp
 $(openocd_builddir)/configure.stamp:
 	rm -rf $(dir $@)
 	mkdir -p $(dir $@)
+	cd $(abspath $(openocd_srcdir)); autoreconf -i
 	cd $(dir $@); $(abspath $(openocd_srcdir)/configure) \
 		--prefix=$(abspath $(dir $@)/prefix)
 	date > $@
